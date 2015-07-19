@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Hello...</title>
+<style type="text/css">
+
+	button {
+		border: 3px blue solid;
+	}
+	
+	.red {
+		color: pink;
+	}
+
+</style>
+</head>
+
+<body>
+	
+	<h1 id="title">Welcome!</h1>
+	
+	<ul id="mylist"></ul>
+	
+	<script>
+	
+		showOptions();
+		
+		function showTextbox() {
+		    // First remove options
+			var add = document.getElementById("add");
+			var remove = document.getElementById("remove");
+			document.body.removeChild(add)
+			document.body.removeChild(remove)
+		
+		    // Create text box
+		    var vb = document.createElement("vbox");
+			vb.setAttribute("id","vbox");
+			vb.textContent = "Enter list text:";
+			
+			    var tb = document.createElement("input");
+				tb.setAttribute("id","inval");
+			    tb.setAttribute("type","text");
+				tb.setAttribute("name","input");
+			    vb.appendChild(tb);
+			
+			    // Create submit button
+			    var submit = document.createElement("button");
+			    submit.setAttribute("id","submit");
+				submit.textContent = "Submit!";
+				submit.addEventListener("click", addItem);
+			    vb.appendChild(submit);
+				
+			
+			document.body.appendChild(vb);
+			
+			
+		}
+		
+		function addItem () {
+		
+			var mylist = document.getElementById("mylist");
+			var li = document.createElement("li");
+			li.textContent = document.getElementById("inval").value;
+			mylist.appendChild(li);
+			
+			// Remove input field
+			var vbox = document.getElementById("vbox")
+			document.body.removeChild(vbox)
+			
+			// Show options
+			showOptions();
+			
+			
+		}
+		
+		function removeItem () {
+			var mylist = document.getElementById("mylist");
+			var ch = mylist.children[mylist.children.length-1];
+			mylist.removeChild(ch);
+		}
+		
+		function showOptions () {
+			var add = document.createElement("button")
+			add.setAttribute("id","add");
+			add.textContent="Add a thing";
+			add.addEventListener("click", showTextbox);
+			document.body.appendChild(add);
+			
+			var remove = document.createElement("button")
+			remove.setAttribute("id","remove");
+			remove.textContent="Remove a thing";
+			remove.addEventListener("click",removeItem)
+			document.body.appendChild(remove);
+		
+		}
+	 
+	</script>
+
+</body>
+</html>
