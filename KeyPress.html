@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="txt"></p>
+        <script>
+            var txt = document.getElementById("txt");
+            
+            window.addEventListener("keydown", function(event) {
+                txt.textContent = txt.textContent + String.fromCharCode(
+                    event.keyCode);
+            })
+            
+        </script>
+    </body>
+</html>

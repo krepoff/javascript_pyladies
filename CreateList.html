@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Hello...</title>
+<style type="text/css">
+
+	button {
+		border: 3px blue solid;
+	}
+	
+	.red {
+		color: pink;
+	}
+
+</style>
+</head>
+
+<body>
+	
+	<h1 id="title">Welcome!</h1>
+	
+	<button id="add">Add a thing</button>
+	<button id="remove">Remove a thing</button>
+	
+	<ul id="mylist"></ul>
+	
+	<script>
+	
+		var add = document.getElementById("add");
+		var remove = document.getElementById("remove");
+		add.addEventListener("click", addItem);
+		remove.addEventListener("click", removeItem);
+		
+		function addItem () {
+			var mylist = document.getElementById("mylist");
+			var li = document.createElement("li");
+			li.textContent = "Item!";
+			mylist.appendChild(li);
+		}
+		
+		function removeItem () {
+			var mylist = document.getElementById("mylist");
+			var ch = mylist.children[mylist.children.length-1];
+			mylist.removeChild(ch);
+		}
+	 
+	</script>
+
+</body>
+</html>
